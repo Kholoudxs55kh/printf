@@ -34,8 +34,8 @@ int _printf(const char *format, ...)
 		}
 		else
 		{
-				str[i] = format[x];
-				i++;
+			str[i] = format[x];
+			i++;
 		}
 		x++;
 	}
