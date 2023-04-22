@@ -5,7 +5,6 @@
  * @format: string
  * Return: whatever
  */
-
 int _printf(const char *format, ...)
 {
 	int 	x;

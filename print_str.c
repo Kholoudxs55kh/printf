@@ -1,5 +1,11 @@
 #include "main.h"
 
+/**
+ * print_str - print string.
+ * @s: arg 1.
+ * @str: arg 2.
+ * @i: arg 3.
+ */
 void print_str(char *s, char *str, int *i)
 {
 	int n;
@@ -13,6 +19,11 @@ void print_str(char *s, char *str, int *i)
 	}
 }
 
+/**
+ * print - print string.
+ * @str: string.
+ * Return: the length of string.
+ */
 int	print(char *str)
 {
 	int	i;
