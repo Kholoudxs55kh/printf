@@ -1,5 +1,5 @@
 #include "main.h"
-#include <stdarg.h>
+
 /**
  * _printf - amplimition to printf
  * @format: string
@@ -8,24 +8,45 @@
 
 int _printf(const char *format, ...)
 {
-	int x;
-
+	int 	x;
+	char	str[1024];
+	int		i;
 	va_list args;
 
 	va_start(args, format);
-
-		x = 0;
-		while ((format != NULL) && (format[x] != '\0') && (format[x] == '%'))
+	x = 0;
+	i = 0;
+	while (format[x])
+	{
+		if (format[x] == '%')
 		{
-			switch (format[x + 1])
+			x++;
+			switch (format[x])
 			{
-			case 'c':
-				write(1, format, 1);
+				case 'c':
+					str[i] = va_arg(args, int);
+					i++;
+					break;
+				case 's':
+					print_str(va_arg(args, char *), str, &i);
 					break;
 			}
-			x++;
 		}
-		va_end(args);
+		else
+		{
+				str[i] = format[x];
+				i++;
+		}
+		x++;
+	}
+	str[i] = '\0';
+	va_end(args);
+	return (print(str));
+}
 
-		return (0);
+int main()
+{
+	printf("%d\n", _printf("ttt%s\n", "rachid"));
+	printf("%d\n", printf("ttt%s\n", "rachid"));
+	return (0);
 }
