@@ -15,9 +15,6 @@ int main(void)
 
 	
 
-	len = _printf("%s %c %%\n", NULL);
-	len2 = printf("%s %c %%\n", NULL);
-	printf("len %d\n", len);
-	printf("len2 %d\n", len2);
+	len = _printf("%z\n", NULL);
 	return 0;
 }

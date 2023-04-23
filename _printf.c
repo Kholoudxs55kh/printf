@@ -5,8 +5,9 @@
  * @s: arg 1.
  * @args: arg 2.
  * @len: arg 3.
+ * Return: ....
  */
-void _switch(char s, va_list args, int *len)
+int _switch(char s, va_list args, int *len)
 {
 	char	a;
 
@@ -24,7 +25,10 @@ void _switch(char s, va_list args, int *len)
 		case '%':
 			*len += write(1, "%", 1);
 			break;
+		default:
+			return (1);
 	}
+	return (0);
 }
 
 /**
@@ -47,8 +51,10 @@ int _printf(const char *format, ...)
 	{
 		if (format[x] == '%')
 		{
-			x++;
-			_switch(format[x], args, &len);
+			if (_switch(format[x + 1], args, &len))
+				len += write(1, format + x, 1);
+			else
+				x++;
 		}
 		else
 			len += write(1, format + x, 1);
