@@ -17,6 +17,9 @@ int helpswitch(char s, va_list args, int *len)
 		case 'p':
 			print_ptr((unsigned long)va_arg(args, void *), len);
 			break;
+		case 'R':
+			*len += rot13(va_arg(args, char *));
+			break;
 		default:
 			return (1);
 	}

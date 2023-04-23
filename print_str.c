@@ -31,3 +31,28 @@ int *Non_printable(char c)
 
 	return (0);
 }
+/**
+ * rot13 - encodes the string into rot13 code
+ * @k: the string
+ * Return: string in rot13code
+ */
+char *rot13(char *k)
+{
+	char a[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	char rot13[] = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";
+	int h = 0, m = 0;
+
+	while (k[h] != '\0')
+	{
+		for (m = 0; m < 5; m++)
+		{
+			if (k[h] == a[m])
+			{
+				k[h] = rot13[m];
+				break;
+			}
+		}
+		h++;
+	}
+	return (k);
+}
