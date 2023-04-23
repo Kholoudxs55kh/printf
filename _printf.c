@@ -8,7 +8,7 @@
  * @i: arg 4.
  * Return: ....
  */
-int _switch(char s, char *str, va_list args, int *i)
+int _switch(char s, char *str, va_list args, int *i, int *n)
 {
 	if (!s)
 		return (2);
@@ -16,7 +16,10 @@ int _switch(char s, char *str, va_list args, int *i)
 	{
 		case 'c':
 			str[*i] = va_arg(args, int);
-			*i = *i + 1;
+			if (str[*i])
+				*i = *i + 1;
+			else
+				*n = *n + 1;
 			break;
 		case 's':
 			print_str(va_arg(args, char *), str, i);
@@ -44,22 +47,21 @@ int _switch(char s, char *str, va_list args, int *i)
  */
 int _printf(const char *format, ...)
 {
-	int x;
+	int x, i, m, n;
 	char str[1024];
-	int i;
 	va_list args;
-	int	m;
 
 	va_start(args, format);
 	x = 0;
 	i = 0;
+	n = 0;
 	if (format == NULL)
 		return (-1);
 	while (format[x])
 	{
 		if (format[x] == '%')
 		{
-			m = _switch(format[x + 1], str, args, &i);
+			m = _switch(format[x + 1], str, args, &i, &n);
 			if (m == 2)
 				return (-1);
 			else if (m == 1)
@@ -79,5 +81,5 @@ int _printf(const char *format, ...)
 	}
 	str[i] = '\0';
 	va_end(args);
-	return (print(str));
+	return (print(str) + n);
 }
