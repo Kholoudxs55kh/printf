@@ -24,7 +24,6 @@ int helpswitch(char s, va_list args, int *len)
 	return (0);
 }
 
-
 /**
  * _switch - amplimition to printf
  * @s: arg 1.
