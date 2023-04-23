@@ -27,7 +27,7 @@ int _switch(char s, char *str, va_list args, int *i)
 			break;
 		case 'd':
 		case 'i':
-			print_num(va_arg(args, int);
+			print_num(va_arg(args, int));
 			*i = *i + 1;
 			break;
 		default:
