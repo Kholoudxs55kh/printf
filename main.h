@@ -8,9 +8,8 @@
 #include <stdarg.h>
 #include <stdlib.h>
 
-int     _printf(const char *format, ...);
-void    print_str(char *s, char *str, int *i);
-int     print(char *str);
+int _printf(const char *format, ...);
+int	printstr(char *str);
 int write_ch(char c);
 int print_num(va_list args);
 int print_unsgined_num(unsigned int k);
