@@ -7,14 +7,18 @@
  */
 int _printf(const char *format, ...)
 {
-	int 	x;
-	char	str[1024];
-	int		i;
+	int x;
+	char str[1024];
+	int i;
 	va_list args;
 
 	va_start(args, format);
 	x = 0;
 	i = 0;
+
+	if (format == NULL)
+		return (write(1, "(null)", 6));
+
 	while (format[x])
 	{
 		if (format[x] == '%')
@@ -45,4 +49,3 @@ int _printf(const char *format, ...)
 	va_end(args);
 	return (print(str));
 }
-
