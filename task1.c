@@ -28,7 +28,7 @@ void print_nums(long nb, char *str, int base, int *len)
  * @nb: arg 1.
  * @str: arg 2.
  * @base: arg 3.
- * @len: arg 4.
+ * @len: length of array.
  */
 void print_numu(unsigned int nb, char *str, int base, int *len)
 {
@@ -42,7 +42,7 @@ void print_numu(unsigned int nb, char *str, int base, int *len)
 }
 
 /**
- * print_num - prints a number
+ * print_num - prints a number within integer specified
  * @n: arg 1.
  * @base: arg 2.
  * @signedd: arg 3.
@@ -66,7 +66,7 @@ void print_num(int n, int base, int signedd, int capital, int *len)
 }
 
 /**
- * print_ptr - prints a unsigned number
+ * print_ptr - prints an unsigned number point
  * @nb: arg 1.
  * @len: arg 4.
  */
