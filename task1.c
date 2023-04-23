@@ -1,103 +1,66 @@
 #include "main.h"
+
 /**
- * write_ch - prints char
- * @c: char
- * Return: write
+ * print_nums - prints a signed number
+ * @nb: arg 1.
+ * @str: arg 2.
+ * @base: arg 3.
+ * @len: arg 4.
  */
-int write_ch(char c)
+void print_nums(long nb, char *str, int base, int *len)
 {
-	return (write(1, &c, 1));
+	if (nb < 0)
+	{
+		nb *= -1;
+		*len += write(1, "-", 1);
+	}
+	if (nb < base)
+		*len += write(1, str + nb, 1);
+	else
+	{
+		print_nums(nb / base, str, base, len);
+		print_nums(nb % base, str, base, len);
+	}
 }
+
+/**
+ * print_numu - prints a unsigned number
+ * @nb: arg 1.
+ * @str: arg 2.
+ * @base: arg 3.
+ * @len: arg 4.
+ */
+void print_numu(unsigned int nb, char *str, int base, int *len)
+{
+	if (nb < (unsigned int)base)
+		*len += write(1, str + nb, 1);
+	else
+	{
+		print_nums(nb / base, str, base, len);
+		print_nums(nb % base, str, base, len);
+	}
+}
+
 /**
  * print_num - prints a number
- * @args: args
- * Return: len
+ * @n: arg 1.
+ * @base: arg 2.
+ * @signedd: arg 3.
+ * @capital: arg 4.
+ * @len: arg 5.
  */
-int print_num(va_list args)
+void print_num(int n, int base, int signedd, int capital, int *len)
 {
-	int k, div, len;
-	unsigned int num;
+	long nbs;
+	unsigned int nbu;
+	char *str = "0123456789abcdef";
 
-	k = va_arg(args, int);
-	div = 1;
-	len = 0;
-
-	if (k < 0)
-	{
-		len += write_ch('-');
-		len += write(1, "-", 1);
-		num = k * -1;
-	}
+	nbs = n;
+	if (capital)
+		str = "0123456789ABCDEF";
+	nbu = n;
+	if (signedd)
+		print_nums(nbs, str, base, len);
 	else
-		num = k;
-
-	for (; num / div > 9; )
-		div *= 10;
-
-	for (; div != 0; )
-	{
-		len += write_ch('0' + num / div);
-		num %= div;
-		div /= 10;
-	}
-
-	return (len);
-}
-/**
- * print_unsgined_num - Prints an unsigned number
- * @k: unsigned integer
- * Return: len
- */
-int print_unsgined_num(unsigned int k)
-{
-	int div, len;
-	unsigned int num;
-
-	div = 1;
-	len = 0;
-
-	num = k;
-
-	for (; num / div > 9; )
-		div *= 10;
-
-	for (; div != 0; )
-	{
-		len += write_ch('0' + num / div);
-		num %= div;
-		div /= 10;
-	}
-
-	return (len);
-}
-
-/**
- * print_int - prints integer
- * @list: arg
- * Return: len
- */
-int print_int(va_list list)
-{
-	int len;
-
-	len = print_num(list);
-	return (len);
-}
-/**
- * unsigned_int - prints unsigned integers
- * @list: args
- * Return: -1 or func
- */
-int unsigned_int(va_list list)
-{
-	unsigned int num;
-
-	num = va_arg(list, unsigned int);
-
-	if (num == 0)
-		return (print_unsgined_num(num));
-
-	if (num < 1)
-		return (-1);
-	return (print_unsgined_num(num));
+		print_numu(nbu, str, base, len);
 }

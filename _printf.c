@@ -25,11 +25,8 @@ int _switch(char s, va_list args, int *len)
 		case '%':
 			*len += write(1, "%", 1);
 			break;
-		case 'd':
-			print_int(args);
-			break;
-		case 'i':
-			print_int(args);
+		case 'd': case 'i':
+			print_num(va_arg(args, int), 10, 1, 0, len);
 			break;
 		default:
 			return (1);

@@ -10,10 +10,6 @@
 
 int _printf(const char *format, ...);
 int	printstr(char *str);
-int write_ch(char c);
-int print_num(va_list args);
-int print_unsgined_num(unsigned int k);
-int print_int(va_list list);
-int unsigned_int(va_list list);
+void print_num(int n, int base, int signedd, int capital, int *len);
 
 #endif
