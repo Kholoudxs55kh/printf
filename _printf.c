@@ -6,9 +6,12 @@
  * @str: arg 2.
  * @args: arg 3.
  * @i: arg 4.
+ * Return: ....
  */
-void _switch(char s, char *str, va_list args, int *i)
+int _switch(char s, char *str, va_list args, int *i)
 {
+	if (!s)
+		exit(-1);
 	switch (s)
 	{
 		case 'c':
@@ -23,8 +26,9 @@ void _switch(char s, char *str, va_list args, int *i)
 			*i = *i + 1;
 			break;
 		default:
-			exit(-1);
+			return (1);
 	}
+	return (0);
 }
 
 /**
@@ -48,8 +52,13 @@ int _printf(const char *format, ...)
 	{
 		if (format[x] == '%')
 		{
-			x++;
-			_switch(format[x], str, args, &i);
+			if (_switch(format[x + 1], str, args, &i))
+			{
+				str[i] = format[x];
+				i++;
+			}
+			else
+				x++;
 		}
 		else
 		{
