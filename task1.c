@@ -24,7 +24,7 @@ int print_num(va_list args)
 
 	if (k < 0)
 	{
-		len += write(1, "-", 4);
+		len += write(1, "-", 1);
 		num = k * -1;
 	}
 	else
