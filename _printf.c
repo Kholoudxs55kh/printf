@@ -74,7 +74,8 @@ int _switch(char s, va_list args, int *len)
 }
 
 /**
- * _printf - printf implementation
+ * _printf - printf implementation function that
+ * produces output according to a format.
  * @format: string
  * Return: whatever
  */
