@@ -64,3 +64,22 @@ void print_num(int n, int base, int signedd, int capital, int *len)
 	else
 		print_numu(nbu, str, base, len);
 }
+
+/**
+ * print_ptr - prints a unsigned number
+ * @nb: arg 1.
+ * @len: arg 4.
+ */
+void print_ptr(unsigned long nb, int *len)
+{
+	char *str = "0123456789abcdef";
+
+	*len += write(1, "0x", 2);
+	if (nb < 16)
+		*len += write(1, str + nb, 1);
+	else
+	{
+		print_nums(nb / 16, str, 16, len);
+		print_nums(nb % 16, str, 16, len);
+	}
+}
