@@ -11,6 +11,9 @@ int helpswitch(char s, va_list args, int *len)
 {
 	switch (s)
 	{
+		case 'S':
+			/* your function */
+			break;
 		case 'p':
 			*len += write(1, "0x", 2);
 			print_num(va_arg(args, int), 16, 0, 0, len);
