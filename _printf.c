@@ -3,32 +3,28 @@
 /**
  * _switch - amplimition to printf
  * @s: arg 1.
- * @args: arg 2.
- * @len: arg 3.
- * Return: ....
+ * @str: arg 2.
+ * @args: arg 3.
+ * @i: arg 4.
  */
-int _switch(char s, va_list args, int *len)
+void _switch(char s, char *str, va_list args, int *i)
 {
-	char	a;
-
-	if (!s)
-		exit(-1);
 	switch (s)
 	{
 		case 'c':
-			a = va_arg(args, int);
-			*len += write(1, &a, 1);
+			str[*i] = va_arg(args, int);
+			*i = *i + 1;
 			break;
 		case 's':
-			*len = print(va_arg(args, char *));
+			print_str(va_arg(args, char *), str, i);
 			break;
 		case '%':
-			*len += write(1, "%", 1);
+			str[*i] = '%';
+			*i = *i + 1;
 			break;
 		default:
-			return (1);
+			exit(-1);
 	}
-	return (0);
 }
 
 /**
@@ -39,27 +35,30 @@ int _switch(char s, va_list args, int *len)
 int _printf(const char *format, ...)
 {
 	int x;
-	int	len;
+	char str[1024];
+	int i;
 	va_list args;
 
 	va_start(args, format);
 	x = 0;
-	len = 0;
+	i = 0;
 	if (format == NULL)
 		return (-1);
 	while (format[x])
 	{
 		if (format[x] == '%')
 		{
-			if (_switch(format[x + 1], args, &len))
-				len += write(1, format + x, 1);
-			else
-				x++;
+			x++;
+			_switch(format[x], str, args, &i);
 		}
 		else
-			len += write(1, format + x, 1);
+		{
+			str[i] = format[x];
+			i++;
+		}
 		x++;
 	}
+	str[i] = '\0';
 	va_end(args);
-	return (len);
+	return (print(str));
 }
