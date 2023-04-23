@@ -25,6 +25,11 @@ int _switch(char s, char *str, va_list args, int *i)
 			str[*i] = '%';
 			*i = *i + 1;
 			break;
+		case 'd':
+		case 'i':
+			print_num(va_arg(args, int);
+			*i = *i + 1;
+			break;
 		default:
 			return (1);
 	}
