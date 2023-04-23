@@ -19,7 +19,7 @@ int _switch(char s, char *str, va_list args, int *i, int *n)
 			if (str[*i])
 				*i = *i + 1;
 			else
-				*n = *n + 1;
+				*n = 0;
 			break;
 		case 's':
 			print_str(va_arg(args, char *), str, i);
