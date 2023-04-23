@@ -40,7 +40,7 @@ int _printf(const char *format, ...)
 	x = 0;
 	i = 0;
 	if (format == NULL)
-		return (write(1, "(null)", 6));
+		return (-1);
 	while (format[x])
 	{
 		if (format[x] == '%')

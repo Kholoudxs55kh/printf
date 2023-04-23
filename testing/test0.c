@@ -9,11 +9,12 @@
  */
 int main(void)
 {
-	_printf("Character:[%c]\n", 'H');
-	printf("Character:[%c]\n", 'H');
-	_printf("String:[%s]\n", "I am a string !");
-	printf("String:[%s]\n", "I am a string !");
-	_printf("Percent:[%%]\n");
-	printf("Percent:[%%]\n");
-	return (0);
+	int len, len2;
+
+
+	len = _printf("%s %c %%\n", NULL);
+	len2 = printf("%s %c %%\n", NULL);
+	printf("len %d\n", len);
+	printf("len2 %d\n", len2);
+	return 0;
 }
