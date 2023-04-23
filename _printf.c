@@ -21,6 +21,8 @@ void _switch(char s, char *str, va_list args, int *i)
 		case '%':
 			str[*i] = '%';
 			*i = *i + 1;
+		default:
+			exit(-1);
 	}
 }
 
