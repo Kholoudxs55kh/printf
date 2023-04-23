@@ -15,10 +15,8 @@ int _printf(const char *format, ...)
 	va_start(args, format);
 	x = 0;
 	i = 0;
-
 	if (format == NULL)
 		return (write(1, "(null)", 6));
-
 	while (format[x])
 	{
 		if (format[x] == '%')

@@ -11,6 +11,9 @@ void print_str(char *s, char *str, int *i)
 	int n;
 
 	n = 0;
+	if (s == NULL)
+		s = "(null)";
+
 	while (s[n])
 	{
 		str[*i] = s[n];
