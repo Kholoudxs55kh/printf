@@ -10,6 +10,8 @@ void _switch(char s, va_list args, int *len)
 {
 	char	a;
 
+	if (!s)
+		exit(-1);
 	switch (s)
 	{
 		case 'c':
@@ -22,8 +24,6 @@ void _switch(char s, va_list args, int *len)
 		case '%':
 			*len += write(1, "%", 1);
 			break;
-		default:
-			exit(-1);
 	}
 }
 
