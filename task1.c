@@ -1,5 +1,14 @@
 #include "main.h"
 /**
+ * write_ch - prints char
+ * @c: char
+ * Return: write
+ */
+int write_ch(char c)
+{
+	return (write(1, &c, 1));
+}
+/**
  * print_num - prints a number
  * @args: args
  * Return: len
@@ -15,7 +24,7 @@ int print_num(va_list args)
 
 	if (k < 0)
 	{
-		len += write(1, '-', 4);
+		len += write(1, "-", 4);
 		num = k * -1;
 	}
 	else
@@ -26,7 +35,7 @@ int print_num(va_list args)
 
 	for (; div != 0; )
 	{
-		len += write(1, '0' + num / div, 4);
+		len += write_ch('0' + num / div);
 		num %= div;
 		div /= 10;
 	}
@@ -53,7 +62,7 @@ int print_unsgined_num(unsigned int k)
 
 	for (; div != 0; )
 	{
-		len += write(1, '0' + num / div, 8);
+		len += write_ch('0' + num / div);
 		num %= div;
 		div /= 10;
 	}
