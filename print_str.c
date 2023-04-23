@@ -19,3 +19,15 @@ int	printstr(char *str)
 	}
 	return (i);
 }
+/**
+ * Non_printable - print non printable chars
+ * @c: the char
+ * Return: whatever
+ */
+int Non_printable(char c)
+{
+	if (c >= 32 && c < 127)
+		return (1);
+
+	return (0);
+}
