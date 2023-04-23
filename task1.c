@@ -24,7 +24,11 @@ int print_num(va_list args)
 
 	if (k < 0)
 	{
+<<<<<<< HEAD
 		len += write_ch('-');
+=======
+		len += write(1, "-", 1);
+>>>>>>> 26ef35a1aea5821237cb27dda2c37831a27e0235
 		num = k * -1;
 	}
 	else
