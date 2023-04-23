@@ -38,10 +38,10 @@ int _switch(char s, va_list args, int *len)
 			print_num(va_arg(args, int), 8, 0, 0, len);
 			break;
 		case 'x':
-			print_num(va_arg(args, int), 15, 0, 0, len);
+			print_num(va_arg(args, int), 16, 0, 0, len);
 			break;
 		case 'X':
-			print_num(va_arg(args, int), 15, 0, 1, len);
+			print_num(va_arg(args, int), 16, 0, 1, len);
 			break;
 		default:
 			return (1);
