@@ -1,6 +1,30 @@
 #include "main.h"
 
 /**
+ * _switch - amplimition to printf
+ * @s: arg 1.
+ * @str: arg 2.
+ * @args: arg 3.
+ * @i: arg 4.
+ */
+void _switch(char s, char *str, va_list args, int *i)
+{
+	switch (s)
+	{
+		case 'c':
+			str[*i] = va_arg(args, int);
+			*i = *i + 1;
+			break;
+		case 's':
+			print_str(va_arg(args, char *), str, i);
+			break;
+		case '%':
+			str[*i] = '%';
+			*i = *i + 1;
+	}
+}
+
+/**
  * _printf - amplimition to printf
  * @format: string
  * Return: whatever
@@ -22,19 +46,7 @@ int _printf(const char *format, ...)
 		if (format[x] == '%')
 		{
 			x++;
-			switch (format[x])
-			{
-				case 'c':
-					str[i] = va_arg(args, int);
-					i++;
-					break;
-				case 's':
-					print_str(va_arg(args, char *), str, &i);
-					break;
-				case '%':
-					str[i] = '%';
-					i++;
-			}
+			_switch(format[x], str, args, &i);
 		}
 		else
 		{
