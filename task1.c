@@ -74,6 +74,11 @@ void print_ptr(unsigned long nb, int *len)
 {
 	char *str = "0123456789abcdef";
 
+	if (!nb)
+	{
+		*len += write(1, "(nil)", 5);
+		return;
+	}
 	*len += write(1, "0x", 2);
 	if (nb < 16)
 		*len += write(1, str + nb, 1);
