@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * helpswitch - amplimition to printf
+ * helpswitch - printf implementation
  * @s: arg 1.
  * @args: arg 2.
  * @len: arg 3.
@@ -24,7 +24,7 @@ int helpswitch(char s, va_list args, int *len)
 }
 
 /**
- * _switch - amplimition to printf
+ * _switch - printf implementation
  * @s: arg 1.
  * @args: arg 2.
  * @len: arg 3.
@@ -74,7 +74,7 @@ int _switch(char s, va_list args, int *len)
 }
 
 /**
- * _printf - amplimition to printf
+ * _printf - printf implementation
  * @format: string
  * Return: whatever
  */
