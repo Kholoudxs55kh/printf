@@ -1,6 +1,29 @@
 #include "main.h"
 
 /**
+ * helpswitch - amplimition to printf
+ * @s: arg 1.
+ * @args: arg 2.
+ * @len: arg 3.
+ * Return: ....
+ */
+int helpswitch(char s, va_list args, int *len)
+{
+	char	a;
+
+	switch (s)
+	{
+		case 'p':
+			*len += write(1, "0x", 2);
+			print_num(va_arg(args, int), 16, 0, 0, len);
+		default:
+			return (1);
+	}
+	return (0);
+}
+
+
+/**
  * _switch - amplimition to printf
  * @s: arg 1.
  * @args: arg 2.
@@ -44,7 +67,8 @@ int _switch(char s, va_list args, int *len)
 			print_num(va_arg(args, int), 16, 0, 1, len);
 			break;
 		default:
-			return (1);
+			if (helpswitch(s, args, len))
+				return (1);
 	}
 	return (0);
 }
