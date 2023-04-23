@@ -8,6 +8,7 @@
 #include <stdarg.h>
 #include <stdlib.h>
 
+
 int _printf(const char *format, ...);
 int	printstr(char *str);
 void print_num(int n, int base, int signedd, int capital, int *len);
