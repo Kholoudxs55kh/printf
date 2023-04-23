@@ -29,9 +29,6 @@ int _printf(const char *format, ...)
 				case 's':
 					print_str(va_arg(args, char *), str, &i);
 					break;
-				case '%':
-					str[i] = '%';
-					i++;
 			}
 		}
 		else
