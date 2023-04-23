@@ -6,6 +6,7 @@
 #include <unistd.h>
 #include <limits.h>
 #include <stdarg.h>
+#include <stdlib.h>
 
 int     _printf(const char *format, ...);
 void    print_str(char *s, char *str, int *i);
