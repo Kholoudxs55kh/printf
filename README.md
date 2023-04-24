@@ -13,3 +13,6 @@ pray for us
 ~ in task 4: Use a local buffer of 1024 chars in order to call write as little as possible.
 ~ in task 5: Handle the following custom conversion specifier: S
 ~ in task 6: Handle the following conversion specifier: p.
+~ 7, 8, 9, 10, 11, 12 not done yet
+~ in task 13: Handle the following custom conversion specifier: r: prints the reversed string
+~in task 14: Handle the following custom conversion specifier: R: prints the rot13'ed string
