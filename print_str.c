@@ -66,13 +66,13 @@ char *rot13(char *k, int *len)
 		{
 			if (k[h] == a[m])
 			{
-				*len = write(1, &rot13[m], 1);
+				*len += write(1, &rot13[m], 1);
 				c = 0;
 				break;
 			}
 		}
 		if (c)
-			*len = write(1, &k[h], 1);
+			*len += write(1, &k[h], 1);
 		h++;
 	}
 	return (k);
