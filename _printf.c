@@ -12,7 +12,7 @@ int helpswitch(char s, va_list args, int *len)
 	switch (s)
 	{
 		case 'S':
-			Non_printable(va_arg(args, int));
+			Non_printable(va_arg(args, char *), len);
 			break;
 		case 'p':
 			print_ptr((unsigned long)va_arg(args, void *), len);

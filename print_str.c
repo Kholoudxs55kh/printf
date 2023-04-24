@@ -22,14 +22,24 @@ int	printstr(char *str)
 /**
  * Non_printable - print non printable chars
  * @c: the char
- * Return: whatever
  */
-int Non_printable(char c)
+void Non_printable(char *c, int *len)
 {
-	if (c >= 32 && c < 127)
-		return (1);
+	int	i = 0;
 
-	return (0);
+	if (!c)
+		c = "(null)";
+	while (c[i])
+	{
+		if (c[i] >= 32 && c[i] < 127)
+			*len += write(1, c + i, 1);
+		else
+		{
+			*len += write(1, "\\x", 2);
+			print_num(c[i], 10, 1, 0, len);
+		}
+		i++;
+	}
 }
 /**
  * rot13 - encodes the string into rot13 code
@@ -41,9 +51,10 @@ char *rot13(char *k)
 	char a[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	char rot13[] = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";
 	int h = 0, m = 0;
+	char t[] = "(null)";
 
 	if (!k)
-		return (0);
+		k = t;
 	while (k[h] != '\0')
 	{
 		for (m = 0; m < 54; m++)
