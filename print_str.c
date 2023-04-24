@@ -41,7 +41,10 @@ char *rot13(char *k)
 	char a[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	char rot13[] = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";
 	int h = 0, m = 0;
+	char t[] = "(null)";
 
+	if (!k)
+		k = t;
 	while (k[h] != '\0')
 	{
 		for (m = 0; m < 54; m++)
@@ -67,13 +70,11 @@ void print_rev(char *s)
 
 	while (k >= 0)
 	{
-	if (s[k] == '\0')
-		break;
-	k++;
+		if (s[k] == '\0')
+			break;
+		k++;
 	}
 	for (k--; k >= 0; k--)
-	{
 		write(1, s + k, 1);
-	}
 	write(1, "\n", 1);
 }
