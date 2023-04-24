@@ -41,7 +41,7 @@ char *rot13(char *k)
 	char a[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	char rot13[] = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";
 	int h = 0, m = 0;
-	char t[] = "(null)";
+	char t[] = "NULL";
 
 	if (!k)
 		k = t;
