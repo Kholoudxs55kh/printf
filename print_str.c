@@ -72,13 +72,16 @@ char *rot13(char *k)
 	return (k);
 }
 /**
- * print_rev -prints a string reversed
+ * print_rev - prints a string reversed
  * @s: the string
  * Return: void
  */
-void print_rev(char *s)
+void print_rev(char *s, int *len)
 {
 	int k = 0;
+
+	if (!s)
+		s = "(null)";
 
 	while (k >= 0)
 	{
@@ -87,6 +90,6 @@ void print_rev(char *s)
 		k++;
 	}
 	for (k--; k >= 0; k--)
-		write(1, s + k, 1);
-	write(1, "\n", 1);
+		*len += write(1, s + k, 1);
+
 }

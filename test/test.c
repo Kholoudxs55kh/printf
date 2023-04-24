@@ -6,13 +6,11 @@
  * main - Entry point
  *
  * Return: Always 0
-/**
- * main - check the code
  *
  * Return: Always 0.
  */
 int main(void)
 {
-    _printf("%S\n", "Best\nSchool");
+	_printf("Unknown:[%r]\n", "Hello");
     return (0);
 }

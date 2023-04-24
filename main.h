@@ -16,6 +16,6 @@ void print_num(int n, int base, int signedd, int capital, int *len);
 void print_ptr(unsigned long nb, int *len);
 void Non_printable(char *c, int *len);
 char *rot13(char *k);
-void print_rev(char *s);
+void print_rev(char *s, int *len);
 
 #endif
