@@ -30,8 +30,7 @@ so we had to make sure that the specifiers do the same, and to generate some of 
 * %u -> would be the specifier to print an unsigned int
 * %o -> would be the specifier to print an integer converted to octal type
 * %x -> would be the specifier to print an integer converted to hex type in lower cases
-* %X -> would be the specifier to print an integer converted to hex t
-    ype in capital cases
+* %X -> would be the specifier to print an integer converted to hex type in capital cases
 * %S "generated" -> would be the specifier to print Non printable characters this way: \x, followed by the ASCII code value in hexadecimal (upper case - always 2 characters)
 * %p -> would be the specifier to print the pointer value (address) of the arguements
 * %r "generated" -> would be the specifier to print the string reversed
