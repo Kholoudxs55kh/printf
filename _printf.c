@@ -2,10 +2,10 @@
 
 /**
  * helpswitch - printf implementation
- * @s: arg 1.
- * @args: arg 2.
- * @len: arg 3.
- * Return: ....
+ * @s: the char to be checked as a specefier.
+ * @args: the argument to match the speci
+ * @len: the lgnth to be a return value
+ * Return: the wanted result as printf would print
  */
 int helpswitch(char s, va_list args, int *len)
 {
@@ -31,10 +31,10 @@ int helpswitch(char s, va_list args, int *len)
 
 /**
  * _switch - printf implementation
- * @s: arg 1.
- * @args: arg 2.
- * @len: arg 3.
- * Return: ....
+ * @s: the char to be checked as a specefier.
+ * @args: the argument to match the speci
+ * @len: the lgnth to be a return value
+ * Return: the wanted result as printf would print
  */
 int _switch(char s, va_list args, int *len)
 {
@@ -81,9 +81,9 @@ int _switch(char s, va_list args, int *len)
 
 /**
  * _printf - printf implementation function that
- * produces output according to a format.
- * @format: string
- * Return: whatever
+ * produces output according to a format just like the built-in function.
+ * @format: the input
+ * Return: the wanted result as printf would print
  */
 int _printf(const char *format, ...)
 {
