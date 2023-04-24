@@ -22,8 +22,6 @@ int helpswitch(char s, va_list args, int *len)
 			break;
 		case 'r':
 			print_rev(va_arg(args, char *), len);
-			if (!args)
-				*len += write(1, "%r", 2);
 			break;
 		default:
 			return (1);
