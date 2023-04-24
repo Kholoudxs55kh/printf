@@ -21,8 +21,8 @@ int	printstr(char *str)
 }
 /**
  * Non_printable - print non printable chars
- * @c: the char
- * @len: the length.
+ * @c: the char to be tested if printed or not
+ * @len: the length of the array.
  */
 void Non_printable(char *c, int *len)
 {
@@ -46,9 +46,9 @@ void Non_printable(char *c, int *len)
 }
 /**
  * rot13 - encodes the string into rot13 code
- * @k: the string
- * @len: the length.
- * Return: string in rot13code
+ * @k: the string given to be converted into rot13
+ * @len: the length of the string.
+ * Return: string in rot13 code or -1
  */
 char *rot13(char *k, int *len)
 {
@@ -79,8 +79,8 @@ char *rot13(char *k, int *len)
 }
 /**
  * print_rev - prints a string reversed
- * @s: the string
- * @len: the length.
+ * @s: the string to be reversed
+ * @len: the length of the string
  * Return: void
  */
 void print_rev(char *s, int *len)
