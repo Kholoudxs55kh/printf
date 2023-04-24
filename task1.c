@@ -2,10 +2,10 @@
 
 /**
  * print_nums - prints a signed number
- * @nb: arg 1.
- * @str: arg 2.
- * @base: arg 3.
- * @len: arg 4.
+ * @nb: number entered as an argument.
+ * @str: the string to be printed.
+ * @base: the base of the number
+ * @len: the length and the return value
  */
 void print_nums(long nb, char *str, int base, int *len)
 {
@@ -25,9 +25,9 @@ void print_nums(long nb, char *str, int base, int *len)
 
 /**
  * print_numu - prints a unsigned number
- * @nb: arg 1.
- * @str: arg 2.
- * @base: arg 3.
+ * @nb: the unsigned unmber to be entered as argument
+ * @str: the containing string
+ * @base: the number base that provides it's converting
  * @len: length of array.
  */
 void print_numu(unsigned int nb, char *str, int base, int *len)
@@ -43,11 +43,11 @@ void print_numu(unsigned int nb, char *str, int base, int *len)
 
 /**
  * print_num - prints a number within integer specified
- * @n: arg 1.
- * @base: arg 2.
- * @signedd: arg 3.
- * @capital: arg 4.
- * @len: arg 5.
+ * @n: number to be given as argument
+ * @base: the number base that simplify the converting
+ * @signedd: to let us know whether it's signed or not
+ * @capital: the char size
+ * @len: the length of the array
  */
 void print_num(int n, int base, int signedd, int capital, int *len)
 {
@@ -67,8 +67,8 @@ void print_num(int n, int base, int signedd, int capital, int *len)
 
 /**
  * print_ptr - prints an unsigned number point
- * @nb: arg 1.
- * @len: arg 4.
+ * @nb: the unsigned number to be printed
+ * @len: the legnth and return type
  */
 void print_ptr(unsigned long nb, int *len)
 {
