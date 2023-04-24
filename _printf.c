@@ -9,6 +9,8 @@
  */
 int helpswitch(char s, va_list args, int *len)
 {
+	char *a;
+
 	switch (s)
 	{
 		case 'S':
@@ -18,7 +20,10 @@ int helpswitch(char s, va_list args, int *len)
 			print_ptr((unsigned long)va_arg(args, void *), len);
 			break;
 		case 'R':
-			*len += printstr(rot13(va_arg(args, char *)));
+			a = rot13(va_arg(args, char *));
+			if (!a)
+				return (2);
+			*len += printstr(a);
 			break;
 		case 'r':
 			print_rev(va_arg(args, char *), len);
@@ -34,12 +39,11 @@ int helpswitch(char s, va_list args, int *len)
  * @s: arg 1.
  * @args: arg 2.
  * @len: arg 3.
+ * @a: arg 4.
  * Return: ....
  */
-int _switch(char s, va_list args, int *len)
+int _switch(char s, va_list args, int *len, char a)
 {
-	char	a;
-
 	if (!s)
 		return (2);
 	switch (s)
@@ -73,8 +77,10 @@ int _switch(char s, va_list args, int *len)
 			print_num(va_arg(args, int), 16, 0, 1, len);
 			break;
 		default:
-			if (helpswitch(s, args, len))
+			if (helpswitch(s, args, len) == 1)
 				return (1);
+			else if (helpswitch(s, args, len) == 2)
+				return (2);
 	}
 	return (0);
 }
@@ -99,7 +105,7 @@ int _printf(const char *format, ...)
 	{
 		if (format[x] == '%')
 		{
-			m = _switch(format[x + 1], args, &len);
+			m = _switch(format[x + 1], args, &len, 0);
 			if (m == 2)
 				return (-1);
 			else if (m == 1)

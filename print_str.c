@@ -22,6 +22,7 @@ int	printstr(char *str)
 /**
  * Non_printable - print non printable chars
  * @c: the char
+ * @len: the length
  */
 void Non_printable(char *c, int *len)
 {
@@ -53,10 +54,9 @@ char *rot13(char *k)
 	char a[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	char rot13[] = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";
 	int h = 0, m = 0;
-	char t[] = "(null)";
 
 	if (!k)
-		k = t;
+		return (NULL);
 	while (k[h] != '\0')
 	{
 		for (m = 0; m < 54; m++)
@@ -74,6 +74,7 @@ char *rot13(char *k)
 /**
  * print_rev - prints a string reversed
  * @s: the string
+ * @len: the length.
  * Return: void
  */
 void print_rev(char *s, int *len)
