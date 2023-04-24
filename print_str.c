@@ -36,18 +36,15 @@ int Non_printable(char c)
  * @k: the string
  * Return: string in rot13code
  */
-int rot13(char *k)
+char *rot13(char *k)
 {
 	char a[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	char rot13[] = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";
-	int h = 0;
-	size_t m = 0;
+	int h = 0, m = 0;
 
-	if (!k)
-		k = "(null)";
 	while (k[h] != '\0')
 	{
-		for (m = 0; m < strlen(a); m++)
+		for (m = 0; m < 54; m++)
 		{
 			if (k[h] == a[m])
 			{
@@ -55,10 +52,9 @@ int rot13(char *k)
 				break;
 			}
 		}
-		write(1, k + h, 1);
 		h++;
 	}
-	return (h);
+	return (k);
 }
 /**
  * print_rev -prints a string reversed
