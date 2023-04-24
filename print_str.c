@@ -43,7 +43,7 @@ int rot13(char *k)
 	int h = 0, m = 0, z;
 
 	if (!k)
-		k = "(null)";
+		return (0);
 	while (k[h] != '\0')
 	{
 		z = 1;
