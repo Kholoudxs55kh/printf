@@ -9,6 +9,6 @@
  */
 int main(void)
 {
-    _printf("%R", "abc");
+    _printf("%R", "abc4343()");
     return (0);
 }
