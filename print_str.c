@@ -40,24 +40,21 @@ int rot13(char *k)
 {
 	char a[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	char rot13[] = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";
-	int h = 0, m = 0, z;
+	int h = 0, m = 0;
 
 	if (!k)
-		return (0);
+		k = "(null)";
 	while (k[h] != '\0')
 	{
-		z = 1;
-		for (m = 0; m < 5; m++)
+		for (m = 0; m < strlen(a); m++)
 		{
 			if (k[h] == a[m])
 			{
-				write(1, rot13 + m, 1);
-				z = 0;
+				k[h] = rot13[m];
 				break;
 			}
 		}
-		if (z)
-			write(1, k + h, 1);
+		write(1, k + h, 1);
 		h++;
 	}
 	return (h);

@@ -6,9 +6,15 @@
  * main - Entry point
  *
  * Return: Always 0
+/**
+ * main - check the code
+ *
+ * Return: Always 0.
  */
 int main(void)
 {
-    _printf("%R", "abc4343()");
+    char s[] = "ROT13 (\"rotate by 13 places\", sometimes hyphenated ROT-13) is a simple letter substitution cipher.\n";
+
+    _printf("%R", s);
     return (0);
 }
