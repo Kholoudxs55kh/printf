@@ -40,7 +40,8 @@ int rot13(char *k)
 {
 	char a[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	char rot13[] = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";
-	int h = 0, m = 0;
+	int h = 0;
+	size_t m = 0;
 
 	if (!k)
 		k = "(null)";
