@@ -36,7 +36,9 @@ void Non_printable(char *c, int *len)
 		else
 		{
 			*len += write(1, "\\x", 2);
-			print_num(c[i], 10, 1, 0, len);
+			if (c[i] < 16)
+				*len += write(1, "0", 1);
+			print_num(c[i], 16, 1, 1, len);
 		}
 		i++;
 	}
