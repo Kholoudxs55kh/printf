@@ -29,3 +29,4 @@ so we had to make sure that the specifiers do the same, and to generate some of 
 	* %r "generated" -> would be the specifier to print the string reversed
 
 	* %R "generated" -> would be the specifier to print the string converted to rot'13 code
+	* The '-' Flag -> align all the outputs to left according to the given width
