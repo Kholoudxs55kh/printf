@@ -80,9 +80,9 @@ static int _switch(char s, va_list args, int *len)
 
 /**
  * my_atoi - atoi
- * @format: arg 1.
- * @x: arg 2.
- * Return: an int.
+ * @format: the input format.
+ * @x: the number of arguements.
+ * Return: the legnth.
  */
 int my_atoi(const char *format, int *x)
 {
@@ -102,10 +102,10 @@ int my_atoi(const char *format, int *x)
 
 /**
  * mflag - flag -
- * @args: arg 1.
- * @len: arg 2.
- * @x: arg 3.
- * @format: arg 4.
+ * @args: the arguements.
+ * @len: the legnth of it.
+ * @x: the inputs.
+ * @format: the output speci.
  * Return: 0.
  */
 int mflag(va_list args, int *len, int *x, const char *format)
