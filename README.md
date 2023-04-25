@@ -35,3 +35,4 @@ so we had to make sure that the specifiers do the same, and to generate some of 
 * %p -> would be the specifier to print the pointer value (address) of the arguements
 * %r "generated" -> would be the specifier to print the string reversed
 * %R "generated" -> would be the specifier to print the string converted to rot'13 code
+* %- -> this flag aligns the output to left
