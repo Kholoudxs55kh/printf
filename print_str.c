@@ -98,5 +98,4 @@ void print_rev(char *s, int *len)
 	}
 	for (k--; k >= 0; k--)
 		*len += write(1, s + k, 1);
-
 }

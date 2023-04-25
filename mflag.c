@@ -1,18 +1,14 @@
 #include "main.h"
 
 /**
- * hswitch - printf implementation
+ * helpswitch - printf implementation
  * @s: the char to be checked as a specefier.
  * @args: the argument to match the speci
  * @len: the lgnth to be a return value
- * @x: arg 4.
- * @format: arg 5.
  * Return: the wanted result as printf would print
  */
-static int hswitch(char s, va_list args, int *len, int *x, const char *format)
+static int helpswitch(char s, va_list args, int *len)
 {
-	if (!s)
-		return (2);
 	switch (s)
 	{
 		case 'S':
@@ -27,10 +23,6 @@ static int hswitch(char s, va_list args, int *len, int *x, const char *format)
 		case 'r':
 			print_rev(va_arg(args, char *), len);
 			break;
-		case '-':
-			if (mflag(args, len, x, format) == -1)
-				return (2);
-			break;
 		default:
 			return (1);
 	}
@@ -42,11 +34,9 @@ static int hswitch(char s, va_list args, int *len, int *x, const char *format)
  * @s: the char to be checked as a specefier.
  * @args: the argument to match the speci
  * @len: the lgnth to be a return value
- * @x: arg 4.
- * @format: arg 5.
  * Return: the wanted result as printf would print
  */
-static int _switch(char s, va_list args, int *len, int *x, const char *format)
+static int _switch(char s, va_list args, int *len)
 {
 	char	a;
 
@@ -81,47 +71,61 @@ static int _switch(char s, va_list args, int *len, int *x, const char *format)
 			print_num(va_arg(args, int), 16, 0, 1, len);
 			break;
 		default:
-			a = hswitch(s, args, len, x, format);
+			a = helpswitch(s, args, len);
 			if (a == 1)
 				return (1);
-			if (a == 2)
-				return (2);
 	}
 	return (0);
 }
 
 /**
- * _printf - printf implementation function that
- * produces output according to a format just like the built-in function.
- * @format: the input
- * Return: the wanted result as printf would print
+ * my_atoi - atoi
+ * @format: arg 1.
+ * @x: arg 2.
+ * Return: an int.
  */
-int _printf(const char *format, ...)
+int my_atoi(const char *format, int *x)
 {
-	int x, len, m;
-	va_list args;
+	int	i = 0;
 
-	va_start(args, format);
-	x = 0;
-	len = 0;
-	if (format == NULL)
-		return (-1);
-	while (format[x])
+	*x += 2;
+	while (format[*x] && format[*x] >= '0' && format[*x] <= '9')
 	{
-		if (format[x] == '%')
-		{
-			m = _switch(format[x + 1], args, &len, &x, format);
-			if (m == 2)
-				return (-1);
-			else if (m == 1)
-				len += write(1, format + x, 1);
-			else
-				x++;
-		}
-		else
-			len += write(1, format + x, 1);
-		x++;
+		i *= 10;
+		i += format[*x] - '0';
+		*x += 1;
 	}
-	va_end(args);
-	return (len);
+	if (!format[*x])
+		return (-1);
+	return (i);
+}
+
+/**
+ * mflag - flag -
+ * @args: arg 1.
+ * @len: arg 2.
+ * @x: arg 3.
+ * @format: arg 4.
+ * Return: 0.
+ */
+int mflag(va_list args, int *len, int *x, const char *format)
+{
+	int	n, m;
+
+	n = my_atoi(format, x);
+	if (n == -1)
+		return (-1);
+	m = *len;
+	if (_switch(format[*x], args, len))
+	{
+		*len += write(1, "%", 1);
+		print_num(n, 10, 0, 0, len);
+		*len += write(1, format + *x, 1);
+		return (0);
+	}
+	n -= *len - m;
+	while (n-- > 0)
+		*len += write(1, " ", 1);
+	*x -= 1;
+	return (0);
 }

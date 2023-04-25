@@ -17,5 +17,6 @@ void print_ptr(unsigned long nb, int *len);
 void Non_printable(char *c, int *len);
 char *rot13(char *k, int *len);
 void print_rev(char *s, int *len);
+int mflag(va_list args, int *len, int *x, const char *format);
 
 #endif
