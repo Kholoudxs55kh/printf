@@ -101,7 +101,7 @@ int my_atoi(const char *format, int *x)
 }
 
 /**
- * mflag - flag -.
+ * mflag - flag -
  * @args: the arguements.
  * @len: the legnth of it.
  * @x: the inputs.
