@@ -5,8 +5,8 @@
  * @s: the char to be checked as a specefier.
  * @args: the argument to match the speci
  * @len: the lgnth to be a return value
- * @x: arg 4.
- * @format: arg 5.
+ * @x: integer.
+ * @format: format.
  * Return: the wanted result as printf would print
  */
 static int hswitch(char s, va_list args, int *len, int *x, const char *format)
@@ -42,8 +42,8 @@ static int hswitch(char s, va_list args, int *len, int *x, const char *format)
  * @s: the char to be checked as a specefier.
  * @args: the argument to match the speci
  * @len: the lgnth to be a return value
- * @x: arg 4.
- * @format: arg 5.
+ * @x: integer.
+ * @format: format.
  * Return: the wanted result as printf would print
  */
 static int _switch(char s, va_list args, int *len, int *x, const char *format)
