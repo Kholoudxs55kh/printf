@@ -30,3 +30,4 @@ so we had to make sure that the specifiers do the same, and to generate some of 
 
 	* %R "generated" -> would be the specifier to print the string converted to rot'13 code
 	* The '-' Flag -> align all the outputs to left according to the given width
+We couldn't get it all done but so far it's quiet good
